@@ -1,0 +1,32 @@
+{
+  "name": "solid-state",
+  "version": "0.0.1",
+  "description": "Confidently maintain state and react to changes",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chinedufn/solid-state"
+  },
+  "keywords": [
+    "solid",
+    "state",
+    "observable",
+    "listen"
+  ],
+  "author": "Chinedu Francis Nwafili <frankie.nwafili@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chinedufn/solid-state/issues"
+  },
+  "homepage": "https://github.com/chinedufn/solid-state",
+  "devDependencies": {
+    "standard": "^4.3.2",
+    "tape": "^4.0.0"
+  },
+  "dependencies": {
+    "immutable": "^3.7.4"
+  }
+}
