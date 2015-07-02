@@ -26,7 +26,6 @@ test('reacts to changes', function (t) {
 
   solid.addListener(function (currentState) {
     t.deepEqual(currentState, {a: 1})
-    t.end()
   })
 
   solid.set('a', 1)
@@ -39,7 +38,6 @@ test('consumes old state', function (t) {
 
   solid.consumeOldState = function (oldState) {
     t.deepEqual(oldState, {})
-    t.end()
   }
 
   solid.set('a', 1)
