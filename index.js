@@ -1,27 +1,19 @@
 var Immutable = require('immutable')
+var Listeners = require('ear')
 
 module.exports = State
 
 function State () {
   this.currentState = {}
   this._map = Immutable.Map({})
-  this.listeners = []
+  this.listeners = Listeners()
 }
 
 State.prototype.addListener = function (listener) {
   if (!typeof listener === 'function') {
     throw new TypeError('Listener is not a function')
   }
-  this.listeners.push(listener)
-
-  return function removeListener () {
-    for (var i = 0; i < this.listeners.length; i++) {
-      if (this.listeners[i] === listener) {
-        this.listeners.splice(i, 1)
-        break
-      }
-    }
-  }
+  return this.listeners.add(listener)
 }
 
 State.prototype.set = function (key, value) {
@@ -35,9 +27,7 @@ State.prototype.set = function (key, value) {
   this._map = newImmutable
   this.currentState = newImmutable.toJS()
 
-  for (var i = 0; i < this.listeners.length; i++) {
-    this.listeners[i](this.currentState)
-  }
+  this.listeners(this.currentState)
 }
 
 // Objects should overwrite this method
