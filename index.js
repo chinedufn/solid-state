@@ -16,7 +16,6 @@ State.prototype.addListener = function (listener) {
 State.prototype.set = function (key, value) {
   var oldImmutable = this._map
   var newImmutable = oldImmutable.set(key, value)
-  if (newImmutable === oldImmutable) return
 
   this._map = newImmutable
   this.currentState = newImmutable.toJS()
