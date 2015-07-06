@@ -10,10 +10,7 @@ function State () {
 }
 
 State.prototype.addListener = function (listener) {
-  if (!typeof listener === 'function') {
-    throw new TypeError('Listener is not a function')
-  }
-  return this.listeners.add(listener)
+  return this.listeners.add(listener) // Returns function to removeListener()
 }
 
 State.prototype.set = function (key, value) {
