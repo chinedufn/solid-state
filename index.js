@@ -21,17 +21,8 @@ State.prototype.set = function (key, value) {
   var newImmutable = oldImmutable.set(key, value)
   if (newImmutable === oldImmutable) return
 
-  var oldState = oldImmutable.toJS()
-  this.consumeOldState(oldState)
-
   this._map = newImmutable
   this.currentState = newImmutable.toJS()
 
   this.listeners(this.currentState)
-}
-
-// Objects should overwrite this method
-// [hmm.. not sure if this belongs..
-// I encourage you to open an issue!]
-State.prototype.consumeOldState = function noop (oldState) {
 }

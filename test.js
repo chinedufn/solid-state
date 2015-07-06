@@ -30,15 +30,3 @@ test('reacts to changes', function (t) {
 
   solid.set('a', 1)
 })
-
-test('consumes old state', function (t) {
-  t.plan(1)
-
-  var solid = new SS()
-
-  solid.consumeOldState = function (oldState) {
-    t.deepEqual(oldState, {})
-  }
-
-  solid.set('a', 1)
-})
