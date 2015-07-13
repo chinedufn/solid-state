@@ -7,6 +7,13 @@ test('solid-state is a function', function (t) {
   t.end()
 })
 
+test('acceots initial state', function (t) {
+  t.plan(1)
+  var solid = new SS({a: 1})
+
+  t.deepEqual(solid.get(), {a: 1})
+})
+
 test('can be set', function (t) {
   t.plan(2)
 

@@ -1,11 +1,12 @@
 var Listeners = require('ear')
 var dotProp = require('dot-prop')
+var extend = require('xtend')
 var traverse = require('traverse')
 
 module.exports = State
 
-function State () {
-  this.__ImmutableState__ = {}
+function State (initialState) {
+  this.__ImmutableState__ = extend({}, initialState)
   this.listeners = Listeners()
 }
 

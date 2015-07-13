@@ -14,9 +14,10 @@ $ npm install --save solid-state
 ```js
 var SS = require('solid-state')
 
-var AppState = new SS()
+var optionalInitialState = {}
+var AppState = new SS(optionalInitialState)
 
-// Receives a clone of the current state
+// Called with a clone of the new state whenever state changes
 AppState.addListener(function (currentState) {
   someRenderFunction(currentState)
 })
