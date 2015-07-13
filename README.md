@@ -1,7 +1,7 @@
-solid-state [![Build Status](https://travis-ci.org/chinedufn/solid-state.svg?branch=master)](https://travis-ci.org/chinedufn/solid-state)
+solid-state [![npm version](https://badge.fury.io/js/solid-state.svg)](http://badge.fury.io/js/solid-state) [![Build Status](https://travis-ci.org/chinedufn/solid-state.svg?branch=master)](https://travis-ci.org/chinedufn/solid-state)
 ===========
 
-> Confidently maintain state and react to changes
+> Triggers listener functions when your state changes
 
 ## Install
 
@@ -16,19 +16,19 @@ var SS = require('solid-state')
 
 var AppState = new SS()
 
-// Called with the current state and the previous state
-AppState.addListener(function (currentState, prevState) {
+// Receives a clone of the current state
+AppState.addListener(function (currentState) {
   someRenderFunction(currentState)
 })
 
 // someRenderFunction gets called with {level: 9001}
 AppState.set('level', 9001)
 
-// someRenderFunction gets called with {level: 9001, foo: 'bar'}
-AppState.set('foo', 'bar') 
+// someRenderFunction gets called with {level: 9001, {nested: {property: 'foo'}}
+AppState.set('nested.property', 'foo')
 
-// {level: 9001, foo: 'bar'}
-console.log(AppState.currentState) 
+// {level: 9001, {nested: {property: 'foo'}}
+console.log(AppState.get())
 ```
 
 ## License

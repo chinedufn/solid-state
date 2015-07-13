@@ -1,11 +1,11 @@
-var Immutable = require('immutable')
 var Listeners = require('ear')
+var dotProp = require('dot-prop')
+var traverse = require('traverse')
 
 module.exports = State
 
 function State () {
-  this.currentState = {}
-  this._map = Immutable.Map({})
+  this.__ImmutableState__ = {}
   this.listeners = Listeners()
 }
 
@@ -14,11 +14,16 @@ State.prototype.addListener = function (listener) {
 }
 
 State.prototype.set = function (key, value) {
-  var oldImmutable = this._map
-  var newImmutable = oldImmutable.set(key, value)
+  var oldImmutable = this.__ImmutableState__
+  var newImmutable = traverse.clone(oldImmutable)
 
-  this._map = newImmutable
-  this.currentState = newImmutable.toJS()
+  dotProp.set(newImmutable, key, value)
 
-  this.listeners(this.currentState)
+  this.__ImmutableState__ = newImmutable
+
+  this.listeners(this.get())
+}
+
+State.prototype.get = function () {
+  return traverse.clone(this.__ImmutableState__)
 }

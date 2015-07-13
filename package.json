@@ -27,7 +27,8 @@
     "tape": "^4.0.0"
   },
   "dependencies": {
+    "dot-prop": "^2.2.0",
     "ear": "~1.0.0",
-    "immutable": "^3.7.4"
+    "traverse": "^0.6.6"
   }
 }
