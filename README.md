@@ -17,8 +17,8 @@ var SS = require('solid-state')
 var optionalInitialState = {}
 var AppState = new SS(optionalInitialState)
 
-// Called with a clone of the new state whenever state changes
-AppState.addListener(function (currentState) {
+// Called a function with a clone of the new state whenever state changes
+var removeListener = AppState.addListener(function (currentState) {
   someRenderFunction(currentState)
 })
 
@@ -30,6 +30,9 @@ AppState.set('nested.property', 'foo')
 
 // {level: 9001, {nested: {property: 'foo'}}
 console.log(AppState.get())
+
+// Stop listening for changes
+removeListener()
 ```
 
 ## License
