@@ -28,6 +28,9 @@ AppState.set('level', 9001)
 // someRenderFunction gets called with {level: 9001, {nested: {property: 'foo'}}
 AppState.set('nested.property', 'foo')
 
+AppState.set('will.get.deleted', true)
+AppState.del('will');
+
 // {level: 9001, {nested: {property: 'foo'}}
 console.log(AppState.get())
 
