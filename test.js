@@ -26,6 +26,15 @@ test('can be set', function (t) {
   t.deepEqual(solid.get(), {a: 1, b: [2, 3, 4]})
 })
 
+test('can be deleted', function (t) {
+  t.plan(1)
+
+  var solid = new SS({a: 1, b: 2})
+  solid.del('a')
+
+  t.deepEqual(solid.get(), {b: 2})
+})
+
 test('reacts to changes', function (t) {
   t.plan(1)
 

@@ -28,3 +28,7 @@ State.prototype.set = function (key, value) {
 State.prototype.get = function () {
   return traverse.clone(this.__ImmutableState__)
 }
+
+State.prototype.del = function (key) {
+  dotProp.delete(this.__ImmutableState__, key)
+}
