@@ -27,7 +27,7 @@
     "tape": "^4.0.0"
   },
   "dependencies": {
-    "dot-prop": "^2.2.0",
+    "dot-prop": "^3.0.0",
     "ear": "~1.0.0",
     "traverse": "^0.6.6",
     "xtend": "^4.0.0"
