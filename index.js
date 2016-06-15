@@ -15,13 +15,7 @@ State.prototype.addListener = function (listener) {
 }
 
 State.prototype.set = function (key, value) {
-  var oldImmutable = this.__ImmutableState__
-  var newImmutable = traverse.clone(oldImmutable)
-
-  dotProp.set(newImmutable, key, value)
-
-  this.__ImmutableState__ = newImmutable
-
+  dotProp.set(this.__ImmutableState__, key, value)
   this.listeners(this.get())
 }
 
@@ -31,4 +25,5 @@ State.prototype.get = function () {
 
 State.prototype.del = function (key) {
   dotProp.delete(this.__ImmutableState__, key)
+  this.listeners(this.get())
 }
