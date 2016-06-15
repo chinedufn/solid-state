@@ -36,15 +36,19 @@ test('can be deleted', function (t) {
 })
 
 test('reacts to changes', function (t) {
-  t.plan(1)
+  t.plan(2)
+  var count = 0
 
   var solid = new SS()
 
   solid.addListener(function (currentState) {
-    t.deepEqual(currentState, {a: 1})
+    if (count === 0) t.deepEqual(currentState, {a: 1})
+    else t.deepEqual(currentState, {})
+    count++
   })
 
   solid.set('a', 1)
+  solid.del('a')
 })
 
 test('sets nested properties', function (t) {
