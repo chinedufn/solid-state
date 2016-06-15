@@ -1,6 +1,6 @@
 {
   "name": "solid-state",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Confidently maintain state and react to changes",
   "main": "index.js",
   "scripts": {
