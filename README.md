@@ -34,6 +34,12 @@ AppState.del('will');
 // {level: 9001, {nested: {property: 'foo'}}
 console.log(AppState.get())
 
+// Overwrite the entire state by only providing a value
+AppState.set({overwrite: 'state'})
+
+// {overwrite: 'state'}
+console.log(AppState.get())
+
 // Stop listening for changes
 removeListener()
 ```

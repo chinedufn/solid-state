@@ -58,3 +58,11 @@ test('sets nested properties', function (t) {
   solid.set('a.b', 1)
   t.deepEqual(solid.get(), {a: {b: 1}})
 })
+
+test('Overwrite entire state', function (t) {
+  t.plan(1)
+
+  var solid = new SS()
+  solid.set({overwrite: 'entire state'})
+  t.deepEqual(solid.get(), {overwrite: 'entire state'})
+})

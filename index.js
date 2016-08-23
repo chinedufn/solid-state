@@ -15,7 +15,13 @@ State.prototype.addListener = function (listener) {
 }
 
 State.prototype.set = function (key, value) {
-  dotProp.set(this.__ImmutableState__, key, value)
+  if (value) {
+    // If a key and value were provided we use dot-prop
+    dotProp.set(this.__ImmutableState__, key, value)
+  } else {
+    // If only a value was provided we overwrite state
+    this.__ImmutableState__ = key
+  }
   this.listeners(this.get())
 }
 
