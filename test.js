@@ -66,3 +66,14 @@ test('Overwrite entire state', function (t) {
   solid.set({overwrite: 'entire state'})
   t.deepEqual(solid.get(), {overwrite: 'entire state'})
 })
+
+test('Does not maintain reference to passed in state var', function (t) {
+  t.plan(1)
+
+  var solid = new SS()
+  var overwrite = {overwrite: true}
+  solid.set(overwrite)
+  overwrite.overwrite = false
+
+  t.deepEqual(solid.get(), {overwrite: true})
+})

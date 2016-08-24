@@ -20,7 +20,7 @@ State.prototype.set = function (key, value) {
     dotProp.set(this.__ImmutableState__, key, value)
   } else {
     // If only a value was provided we overwrite state
-    this.__ImmutableState__ = key
+    this.__ImmutableState__ = traverse.clone(key)
   }
   this.listeners(this.get())
 }
