@@ -77,3 +77,11 @@ test('Does not maintain reference to passed in state var', function (t) {
 
   t.deepEqual(solid.get(), {overwrite: true})
 })
+
+test('Pass in `false` as value', function (t) {
+  t.plan(1)
+
+  var solid = new SS()
+  solid.set('foo', false)
+  t.deepEqual(solid.get(), {foo: false})
+})
