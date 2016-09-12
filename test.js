@@ -85,3 +85,12 @@ test('Pass in `false` as value', function (t) {
   solid.set('foo', false)
   t.deepEqual(solid.get(), {foo: false})
 })
+
+test('Accepts undefined and null as values', function (t) {
+  t.plan(1)
+
+  var solid = new SS()
+  solid.set('foo', undefined)
+  solid.set('bar', null)
+  t.deepEqual(solid.get(), {foo: undefined, bar: null})
+})

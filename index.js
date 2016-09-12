@@ -15,7 +15,7 @@ State.prototype.addListener = function (listener) {
 }
 
 State.prototype.set = function (key, value) {
-  if (value !== undefined) {
+  if (arguments.length === 2) {
     // If a key and value were provided we use dot-prop
     dotProp.set(this.__ImmutableState__, key, value)
   } else {
