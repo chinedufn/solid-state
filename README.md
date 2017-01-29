@@ -3,6 +3,13 @@ solid-state [![npm version](https://badge.fury.io/js/solid-state.svg)](http://ba
 
 > Triggers listener functions when your state changes
 
+## Note
+
+I use `solid-state` for demo's, prototypes and smaller applications that I don't plan to maintain. It's good for quickly
+setting up functional reactive programming without needing a reducer library.
+
+For real applications I use [minidux](https://github.com/freeman-lab/minidux)
+
 ## Install
 
 ```
